@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 
-export default class DeckView extends React.Component {
+class DeckView extends React.Component {
+
   render() {
     return (
       <View>
-        <Text>Deck</Text>
+        <Text>{this.props.deck.title}</Text>
+        <Text>{this.props.deck.questions.length} cards</Text>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('newquestion')}>
             <Text>Add Card</Text>
         </TouchableOpacity>
@@ -16,3 +19,11 @@ export default class DeckView extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    deck: state.selectedDeck
+  };
+};
+
+export default connect(mapStateToProps) (DeckView);

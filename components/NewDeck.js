@@ -1,11 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 
 export default class NewDeck extends React.Component {
+    
   render() {
     return (
       <View>
-        <Text>New Deck</Text>
+            <Text>What is the title of your new deck?</Text>
+            
       </View>
     );
   }
