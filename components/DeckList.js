@@ -28,16 +28,19 @@ class DeckList extends React.Component {
             </View>
         )
     }
-
     return (
-      <View>
+      <View style={styles.container}>
         {this.props.decks.map( d => {
             return (
-                <TouchableOpacity 
+                <TouchableOpacity style={styles.deckItem}
                     key={d.title}
                     onPress={() => this.openDeck(d)}>
-                    <Text>{d.title}</Text>
-                    <Text>{d.questions.length} Cards</Text>
+                    <Text style={{ fontSize: 18}}>{d.title}</Text>
+                    {d.questions ? (
+                        <Text style={styles.cardCount}>{d.questions.length} Cards</Text>
+                    ) : (
+                        <Text style={styles.cardCount}>0 Cards</Text>
+                    )}
                 </TouchableOpacity>
             )
         })}
@@ -45,6 +48,22 @@ class DeckList extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    deckItem: {
+        margin: 10,
+        padding: 10,
+    },
+    cardCount: {
+        fontSize: 16,
+        color: 'grey'
+    }
+});
 
 const mapStateToProps = (state) => {
   return {

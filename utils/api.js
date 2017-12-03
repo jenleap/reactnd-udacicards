@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native';
 
-const STORAGE_KEY = 'UdaciCards:decks';
+const STORAGE_KEY = 'UdaciCards:decks3';
 
 export function setDummyData() {
     const dummyData = {
@@ -43,6 +43,15 @@ export function makeArray(obj) {
         arr.push(obj[key]);
     }
     return arr;
+}
+
+export function saveDeck(deck) {
+     return AsyncStorage.mergeItem(STORAGE_KEY, JSON.stringify(deck));
+}
+
+export function saveQuestion(deck) {
+    console.log(deck);
+    return AsyncStorage.mergeItem(STORAGE_KEY, JSON.stringify(deck));
 }
 
 

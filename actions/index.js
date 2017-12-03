@@ -7,28 +7,22 @@ export const SELECT_DECK = 'SELECT_DECK';
 export function getDecks(decks) {
     return {
         type: GET_DECKS,
-        decks
+        payload: decks
   }
 }
 
 export function addDeck(deck) {
   return {
     type: ADD_DECK,
-    deck
+    payload: deck
   }
 }
 
-export function updateDeck(deck) {
-  return {
-    type: UPDATE_DECK,
-    deck
-  }
-}
 
 export function selectDeck(deck) {
     return {
         type: SELECT_DECK,
-        deck
+        payload: deck
     }
 }
 
