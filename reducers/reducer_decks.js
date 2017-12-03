@@ -1,4 +1,4 @@
-import { GET_DECKS, ADD_DECK, UPDATE_DECK, SELECT_DECK } from '../actions';
+import { GET_DECKS, ADD_DECK, SELECT_DECK } from '../actions';
 import { makeArray } from './../utils/api';
 
 

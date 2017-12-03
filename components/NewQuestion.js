@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import { saveDeck } from './../utils/api';
+import { saveQuestion } from './../utils/api';
 import { addDeck, selectDeck } from './../actions';
 import { connect } from 'react-redux';
 
@@ -11,16 +11,9 @@ class NewQuestion extends React.Component {
     }
 
     onSubmit = () => {
-        let newDeck = {
-            [this.props.deck.title] : {
-              title: this.props.deck.title,
-              questions: [
-                ...this.props.deck.questions,
-              {
-                question: this.state.newQuestion,
-                answer: this.state.newAnswer
-              }]
-            }
+        let newQuestion = {
+          question: this.state.newQuestion,
+          answer: this.state.newAnswer
         };
         let reduxDeck = {
               title: this.props.deck.title,
@@ -33,7 +26,7 @@ class NewQuestion extends React.Component {
         };
         this.props.selectDeck(reduxDeck);
         this.props.addDeck(reduxDeck);
-        saveDeck(newDeck);
+        saveQuestion(this.props.deck.title, newQuestion);
         this.props.navigation.navigate('deck');
     }
 

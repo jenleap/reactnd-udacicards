@@ -1,7 +1,6 @@
 
 export const GET_DECKS = 'GET_DECKS';
 export const ADD_DECK = 'ADD_DECK';
-export const UPDATE_DECK = 'UPDATE_DECK';
 export const SELECT_DECK = 'SELECT_DECK';
 
 export function getDecks(decks) {
@@ -25,4 +24,3 @@ export function selectDeck(deck) {
         payload: deck
     }
 }
-

@@ -67,17 +67,6 @@ const styles = StyleSheet.create({
     }
 });
 
-const mapStateToProps = (state) => {
-  return {
-    decks: state.decks
-  };
-};
+const mapStateToProps = ({ decks }) => ({ decks });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getDecks: (decks) => dispatch(getDecks(decks)),
-    selectDeck: (deck) => dispatch(selectDeck(deck))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps) (DeckList);
+export default connect(mapStateToProps, { getDecks, selectDeck }) (DeckList);

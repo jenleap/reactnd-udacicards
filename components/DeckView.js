@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 class DeckView extends React.Component {
 
   render() {
-    console.log(this.props.deck);
     return (
       <View style={styles.container}>
         <Text style={{ fontSize: 18}}>{this.props.deck.title}</Text>

@@ -49,9 +49,22 @@ export function saveDeck(deck) {
      return AsyncStorage.mergeItem(STORAGE_KEY, JSON.stringify(deck));
 }
 
-export function saveQuestion(deck) {
-    console.log(deck);
-    return AsyncStorage.mergeItem(STORAGE_KEY, JSON.stringify(deck));
+export function saveQuestion(deckTitle, card) {
+    let decks;
+    AsyncStorage.getItem(STORAGE_KEY)
+        .then(data => {
+            decks = JSON.parse(data);
+            let deck = {
+                [deckTitle] : {
+                    questions: [
+                        ...decks[deckTitle].questions,
+                        card
+                    ]
+                }
+            };
+            return AsyncStorage.mergeItem(STORAGE_KEY, JSON.stringify(deck));
+        });
+    
 }
 
 
