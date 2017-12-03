@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native';
 
-const STORAGE_KEY = 'UdaciCards:decks3';
+const STORAGE_KEY = 'UdaciCards:decks2';
 
 export function setDummyData() {
     const dummyData = {

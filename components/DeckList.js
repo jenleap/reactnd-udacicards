@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchDecks } from './../utils/api';
 import { getDecks, selectDeck } from './../actions';
@@ -29,7 +29,8 @@ class DeckList extends React.Component {
         )
     }
     return (
-      <View style={styles.container}>
+      <ScrollView >
+          <View style={styles.container}>
         {this.props.decks.map( d => {
             return (
                 <TouchableOpacity style={styles.deckItem}
@@ -44,7 +45,8 @@ class DeckList extends React.Component {
                 </TouchableOpacity>
             )
         })}
-      </View>
+        </View>
+      </ScrollView>
     );
   }
 }

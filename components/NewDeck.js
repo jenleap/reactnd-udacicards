@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { saveDeck } from './../utils/api';
 import { addDeck, selectDeck } from './../actions';
 import { connect } from 'react-redux';
@@ -29,7 +29,7 @@ class NewDeck extends React.Component {
     
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
             <Text style={{ fontSize: 25}}>What is the title of your new deck?</Text>
             <TextInput 
                 style={styles.inputBox}
@@ -39,9 +39,9 @@ class NewDeck extends React.Component {
             <TouchableOpacity 
                 style={styles.button}
                 onPress={this.onSubmit}>
-                <Text style={{ color: "white" }}>Submit</Text>
+                <Text style={{ color: "white", textAlign: 'center' }}>Submit</Text>
             </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'stretch',
+        padding: 10
     },
     inputBox: {
         margin: 10,
